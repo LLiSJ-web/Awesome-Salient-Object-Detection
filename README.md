@@ -41,10 +41,7 @@ RGB-T SOD exploits the complementary properties of **visible (RGB)** and **therm
 
 ### Deep Learning-based Methods
 
-> **Note**: Backbones are listed as reported in the original papers. This list is intended to be **exhaustive** based on the current repository content and will be continuously updated.
-
-
-| Year | Method         | Title                                                                                                                                | Pub    | Backbone                 | Resources                                                                      |
+| Year | Method         | Title                                                                                                                                | Pub.    | Backbone                 | Resources                                                                      |
 | ---- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ------ | ------------------------ | ------------------------------------------------------------------------------ |
 | 2017 | -              | Learning Multiscale Deep Features and SVM Regressors for Adaptive RGB-T Saliency Detection                                           | ISCID  | VGG16                    | [Paper](https://ieeexplore.ieee.org/document/8275796)                                                                      |
 | 2020 | FMCF           | RGB-T Salient Object Detection via Fusing Multi-Level CNN Features                                                                   | TIP    | VGG16                    | [Paper](https://ieeexplore.ieee.org/document/8935533)                                                                      |
@@ -173,8 +170,8 @@ Commonly used evaluation metrics in RGB-T SOD include:
 
 ## 📖 Related Surveys
 
-* RGB-D and RGB-T Salient Object Detection: A Comprehensive Survey
-* Multi-Modal Saliency Detection: Datasets, Methods, and Challenges
+* RGB-D Salient Object Detection: A Survey [[Paper](https://arxiv.org/pdf/2008.00230)] [[代码](https://github.com/taozh2017/RGBD-SODsurvey?tab=readme-ov-file)]
+* 
 
 ---
 
