@@ -3,12 +3,11 @@
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
-![Papers](https://img.shields.io/badge/Papers-100%2B-blue)
 ![Last Update](https://img.shields.io/badge/Last%20Update-2026--01-orange)
 
 A curated and continuously updated collection of **RGB–Thermal Salient Object Detection (RGB-T SOD)** methods, datasets, and related resources.
 
-RGB-T SOD exploits the complementary properties of **visible (RGB)** and **thermal infrared (T)** modalities to achieve robust saliency perception under challenging conditions such as **low illumination, camouflage, occlusion, adverse weather, and background clutter**.
+RGB-T SOD exploits the complementary properties of **visible (RGB)** and **thermal infrared (T)** modalities to achieve robust saliency detection under challenging conditions such as **low illumination, camouflage, occlusion, adverse weather, and background clutter**.
 
 ---
 
@@ -30,7 +29,7 @@ RGB-T SOD exploits the complementary properties of **visible (RGB)** and **therm
 
 ### Machine Learning-based Methods
 
-| Year | Method  | Title                                                                                   | Venue | Resources|
+| Year | Method  | Title                                                                                   | Pub. | Resources|
 | ---- | ------- | --------------------------------------------------------------------------------------- | ----- | ------------------------ |
 | 2018 | MTMR    | RGB-T saliency detection benchmark: Dataset, baselines, analysis and a novel approach   | IGTA  | [Paper](https://link.springer.com/chapter/10.1007/978-981-13-1702-6_36) / [代码](https://github.com/lz118/RGBT-Salient-Object-Detection/blob/master/Readme.md)     |
 | 2019 | M3S-NIR | M3S-NIR: Multi-Modal Multi-Scale Noise-Insensitive Ranking for RGB-T Saliency Detection | MIPR  | [Paper](https://ieeexplore.ieee.org/document/8695412) / [代码](https://github.com/lz118/RGBT-Salient-Object-Detection/tree/master/Code/M3S-NIR)     |
@@ -130,7 +129,7 @@ RGB-T SOD exploits the complementary properties of **visible (RGB)** and **therm
 
 #### Vision Foundation Model-based Methods
 
-| Year | Method  | Title                                                                                               | Venue | Backbone              | Resources |
+| Year | Method  | Title                                                                                               | Pub. | Backbone              | Resources |
 | ---- | ------- | --------------------------------------------------------------------------------------------------- | ----- | --------------------- | --------- |
 | 2025 | KAN-SAM | KAN-SAM: Kolmogorov-Arnold Network Guided Segment Anything Model for RGB-T Salient Object Detection | arXiv | SAM2 + KAN adapter    | [Paper](https://arxiv.org/abs/2504.05878) |
 | 2025 | HyPSAM  | HyPSAM: Hybrid Prompt-driven Segment Anything Model for RGB-Thermal Salient Object Detection        | TCSVT | Swin Transformer V2-B | [Paper](https://ieeexplore.ieee.org/document/11177578) |
@@ -138,7 +137,7 @@ RGB-T SOD exploits the complementary properties of **visible (RGB)** and **therm
 
 #### Diffusion Model-based Methods
 
-| Year | Method  | Title                                                                        | Venue  | Backbone                            | Resources                                                     |
+| Year | Method  | Title                                                                        | Pub.  | Backbone                            | Resources                                                     |
 | ---- | ------- | ---------------------------------------------------------------------------- | ------ | ----------------------------------- | ------------------------------------------------------------- |
 | 2025 | diffSOD | Multi-modal Salient Object Detection via a Unified Diffusion Model           | ICASSP | Diffusion & De-ViT (Deformable ViT) | [Paper](https://ieeexplore.ieee.org/document/10887966) / [代码](https://github.com/QuantumScriptHub/diffSOD) |
 | 2025 | DiMSOD  | DiMSOD: A Diffusion-Based Framework for Multi-Modal Salient Object Detection | AAAI   | Stable Diffusion + PVT              | [Paper](https://dl.acm.org/doi/abs/10.1609/aaai.v39i10.33096)                                                     |
@@ -148,10 +147,14 @@ RGB-T SOD exploits the complementary properties of **visible (RGB)** and **therm
 
 ## 🗂 Datasets
 
-| Dataset | Modalities | Size | Scene            |
-| ------- | ---------- | ---- | ---------------- |
-| VT5000  | RGB-T      | 5000 | Indoor / Outdoor |
-| VT1000  | RGB-T      | 1000 | Outdoor          |
+| Dataset | Alignment | Year | Pub. | Size | #Obj. | Types | Sensor | Resolution | Resources |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **VT821** | Aligned | 2018 | TCSVT | 821 | Variable | Indoor/outdoor | MAG32 & SONY TD-2073 | 480 × 640 | [Link](https://github.com/lz118/RGBT-Salient-Object-Detection) |
+| **VT1000** | Aligned | 2019 | TMM | 1,000 | Variable | Indoor/outdoor | FLIR SC620 | 480 × 640 | [Link](https://github.com/lz118/RGBT-Salient-Object-Detection) |
+| **VT5000** | Aligned | 2022 | TMM | 5,000 | Variable | Indoor/outdoor | FLIR T640 & T610 | 640 × 480 | [Link](https://github.com/lz118/RGBT-Salient-Object-Detection) |
+| **UAV RGB-T 2400** | Unaligned | 2023 | TGRS | 2,400 | Variable | Outdoor (UAV-view) | DJI MAVIC 2 Enterprise Advanced | 1920×1080 (RGB) & 640×512 (T) | [Link](https://github.com/VDT-2048/UAV-RGB-T-2400) |
+| **UVT20K** | Unaligned | 2025 | AAAI | 20,000 | Variable | Indoor & Outdoor (real-world scenes) | Hikvision DS-2TP23 & FLIR SC620 | Various | [Link](https://github.com/Angknpng/PCNet) |
+
 
 ---
 
@@ -159,11 +162,12 @@ RGB-T SOD exploits the complementary properties of **visible (RGB)** and **therm
 
 Commonly used evaluation metrics in RGB-T SOD include:
 
-* **Precision–Recall (PR) Curve**
-* **F-measure / Fβ-score**
+* **Precision–Recall (PR) curves**
+* **F-measure ($F_{\beta}$)**
+* **Weighted F-measure ($F_{\beta}^{\omega}$)**
 * **Mean Absolute Error (MAE)**
-* **S-measure (Structure-measure)**
-* **E-measure (Enhanced-alignment measure)**
+* **Structure-measure ($S_{\alpha}$)**
+* **Enhanced-alignment measure ($E_{\phi}$)**
 
 ---
 
@@ -181,7 +185,6 @@ If you find this repository useful, please consider citing or starring ⭐ it.
 ```bibtex
 @misc{rgbt_sod_awesome,
   title  = {Awesome RGB-T Salient Object Detection},
-  author = {Community Contributors},
   year   = {2025}
 }
 ```
